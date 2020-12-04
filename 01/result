@@ -1,0 +1,33 @@
+python -m doctest -v -o NORMALIZE_WHITESPACE issue01.py
+
+
+
+Trying:
+    encode('abcdefghijklmn')
+Expecting:
+    Traceback (most recent call last):
+    KeyError: 'a'
+ok
+Trying:
+    encode('SOS')
+Expecting:
+    '... --- ...'
+ok
+Trying:
+    encode('ABCDEFGHIJKLMNOPQRSTUVWXYZ') # doctest: +ELLIPSIS
+Expecting:
+    '.- -... ... -.-- --..'
+ok
+Trying:
+    encode('ABCDEFGHIJKLMN')
+Expecting:
+    '.- -... -.-. -.. . ..-. --.
+    .... .. .--- -.- .-.. -- -.'
+ok
+1 items had no tests:
+    issue01
+1 items passed all tests:
+   4 tests in issue01.encode
+4 tests in 2 items.
+4 passed and 0 failed.
+Test passed.
